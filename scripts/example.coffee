@@ -10,15 +10,15 @@
 
 module.exports = (robot) ->
 
-  # robot.hear /badger/i, (res) ->
-  #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+  robot.hear /badger/i, (res) ->
+     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
-  # robot.respond /open the (.*) doors/i, (res) ->
-  #   doorType = res.match[1]
-  #   if doorType is "pod bay"
-  #     res.reply "I'm afraid I can't let you do that."
-  #   else
-  #     res.reply "Opening #{doorType} doors"
+  robot.respond /open the (.*) doors/i, (res) ->
+     doorType = res.match[1]
+     if doorType is "pod bay"
+       res.reply "I'm afraid I can't let you do that."
+     else
+     res.reply "Opening #{doorType} doors"
   #
   # robot.hear /I like pie/i, (res) ->
   #   res.emote "makes a freshly baked pie"
@@ -89,18 +89,18 @@ module.exports = (robot) ->
   #   if res?
   #     res.reply "DOES NOT COMPUTE"
   #
-  # robot.respond /have a soda/i, (res) ->
-  #   # Get number of sodas had (coerced to a number).
-  #   sodasHad = robot.brain.get('totalSodas') * 1 or 0
-  #
-  #   if sodasHad > 4
-  #     res.reply "I'm too fizzy.."
-  #
-  #   else
-  #     res.reply 'Sure!'
-  #
-  #     robot.brain.set 'totalSodas', sodasHad+1
-  #
-  # robot.respond /sleep it off/i, (res) ->
-  #   robot.brain.set 'totalSodas', 0
-  #   res.reply 'zzzzz'
+  robot.respond /have a soda/i, (res) ->
+     # Get number of sodas had (coerced to a number).
+     sodasHad = robot.brain.get('totalSodas') * 1 or 0
+  
+     if sodasHad > 4
+       res.reply "I'm too fizzy.."
+  
+     else
+       res.reply 'Sure!'
+  
+       robot.brain.set 'totalSodas', sodasHad+1
+  
+   robot.respond /sleep it off/i, (res) ->
+     robot.brain.set 'totalSodas', 0
+     res.reply 'zzzzz'
